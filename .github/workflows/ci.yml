@@ -14,8 +14,8 @@ jobs:
         image: postgres:15
         env:
           POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
-          POSTGRES_DB: reading_goal_tracker
+          POSTGRES_PASSWORD: securepass
+          POSTGRES_DB: reading_tracker
         ports:
           - 5432:5432
         options: >-
