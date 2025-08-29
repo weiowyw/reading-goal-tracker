@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from books.models import Book, ReadingGoal
 from datetime import date
 
+
 @pytest.mark.django_db
 def test_book_progress():
     user = User.objects.create_user(username="testuser")
@@ -11,9 +12,10 @@ def test_book_progress():
         title="Test Book",
         start_date=date.today(),
         total_pages=100,
-        pages_read=25
+        pages_read=25,
     )
     assert book.progress() == 25.0
+
 
 @pytest.mark.django_db
 def test_book_progress_zero_total_pages():
@@ -23,17 +25,15 @@ def test_book_progress_zero_total_pages():
         title="Empty Book",
         start_date=date.today(),
         total_pages=0,
-        pages_read=0
+        pages_read=0,
     )
     assert book.progress() == 0
+
 
 @pytest.mark.django_db
 def test_reading_goal_progress():
     user = User.objects.create_user(username="testuser")
     goal = ReadingGoal.objects.create(
-        user=user,
-        year=2025,
-        target_books=10,
-        completed_books=4
+        user=user, year=2025, target_books=10, completed_books=4
     )
     assert goal.progress() == 40.0

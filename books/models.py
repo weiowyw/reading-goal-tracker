@@ -25,7 +25,9 @@ class ReadingGoal(models.Model):
     completed_books = models.PositiveIntegerField(default=0)
 
     def progress(self):
-        return (self.completed_books / self.target_books) * 100 if self.target_books else 0
+        return (
+            (self.completed_books / self.target_books) * 100 if self.target_books else 0
+        )
 
     def __str__(self):
         return f"Goal {self.year}-{self.month or 'Full year'} for {self.user.username}"
