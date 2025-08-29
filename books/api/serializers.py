@@ -4,7 +4,7 @@ from ..models import Book, ReadingGoal
 
 
 class BookSerializer(serializers.ModelSerializer):
-    progress = serializers.FloatField(read_only=True)
+    progress = serializers.CharField(read_only=True)
 
     class Meta:
         model = Book
@@ -12,7 +12,7 @@ class BookSerializer(serializers.ModelSerializer):
 
 
 class ReadingGoalSerializer(serializers.ModelSerializer):
-    progress = serializers.FloatField(read_only=True)
+    progress = serializers.CharField(read_only=True)
 
     class Meta:
         model = ReadingGoal

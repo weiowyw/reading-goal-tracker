@@ -14,7 +14,7 @@ def test_book_progress():
         total_pages=100,
         pages_read=25,
     )
-    assert book.progress() == 25.0
+    assert book.progress() == "25%"
 
 
 @pytest.mark.django_db
@@ -27,7 +27,7 @@ def test_book_progress_zero_total_pages():
         total_pages=0,
         pages_read=0,
     )
-    assert book.progress() == 0
+    assert book.progress() == "0%"
 
 
 @pytest.mark.django_db
@@ -36,4 +36,4 @@ def test_reading_goal_progress():
     goal = ReadingGoal.objects.create(
         user=user, year=2025, target_books=10, completed_books=4
     )
-    assert goal.progress() == 40.0
+    assert goal.progress() == "40%"

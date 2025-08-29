@@ -18,7 +18,7 @@ def test_book_serializer():
     serializer = BookSerializer(book)
     data = serializer.data
     assert data["title"] == "Test Book"
-    assert data["progress"] == 50.0
+    assert data["progress"] == "50%"
     assert data["pages_read"] == 50
 
 
@@ -32,7 +32,7 @@ def test_reading_goal_serializer():
     data = serializer.data
     assert data["year"] == 2025
     assert data["month"] == 8
-    assert data["progress"] == 30.0
+    assert data["progress"] == "30%"
 
 
 @pytest.mark.django_db
