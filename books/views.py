@@ -17,8 +17,8 @@ class BookViewSet(viewsets.ModelViewSet):
     def weekly_stats(self, request):
         today = date.today()
         week_start = today - timedelta(days=today.weekday())
-        books = self.queryset.filter(date_finished__gte=week_start)
-        total_pages = books.aggregate(Sum("pages"))["pages__sum"] or 0
+        books = self.queryset.filter(end_date__gte=week_start)
+        total_pages = books.aggregate(Sum("total_pages"))["total_pages__sum"] or 0
         return response.Response(
             {
                 "week_start": week_start,

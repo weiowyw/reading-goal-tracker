@@ -71,6 +71,8 @@ python manage.py runserver
 
 ## `/books/api/users/` - List and retrieve users
 
+## `/books/api/books/weekly_stats/` - Weekly stats for books starting from Monday
+
 # Running Tests
 ```bash
 pytest
